@@ -1,26 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro</title>
-</head>
-<body>
-    <h2>Criar Conta</h2>
+{% load static %}
 
-    <form method="POST">
+<!-- Formulário de Registro -->
+<div class="form-box register">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <form action="{% url 'register' %}" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Cadastrar</button>
+        <h1>Registro</h1>
+        <div class="input-box">
+            <input type="text" name="username" placeholder="Nome de Usuário" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="email" name="email" placeholder="Email" required>
+            <i class='bx bxs-envelope'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" name="password" placeholder="Senha" required>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" name="confirm_password" placeholder="Confirmar Senha" required>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+        <button type="submit" class="btn">Registrar</button>
+        <p>ou registre-se com plataformas sociais</p>
+        <div class="social-icons">
+            <a href="#"><i class='bx bxl-google'></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-github'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+        </div>
     </form>
+</div>
 
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-    
-    <p>Já tem uma conta? <a href="{% url 'login' %}">Faça login</a></p>
-</body>
-</html>
+<script src="{% static 'js/script.js' %}"></script>

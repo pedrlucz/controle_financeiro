@@ -43,8 +43,10 @@ ROOT_URLCONF = 'financas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [
+            BASE_DIR / 'templates', 
+        ],
+        'APP_DIRS': True, # permite que o Django procure templates dentro das pastas 'templates' nos apps
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -108,11 +110,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "controle/static"
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'adicionar/'
+LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL = 'home' # redirecionar após o login
+
+LOGOUT_REDIRECT_URL = 'login' # redireciona após o logout
