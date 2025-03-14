@@ -1,6 +1,18 @@
 {% load static %}
 
-<!-- Formulário de Registro -->
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Login/Signup Form</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<!-- Formulário de Registro --> 
 <div class="form-box register">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <form action="{% url 'register' %}" method="POST">
@@ -32,5 +44,20 @@
         </div>
     </form>
 </div>
+
+<div class="toogle-box">
+    <div class="toogle-panel toogle-left">
+        <h1>Olá, Bem Bem-vindo!</h1>
+        <p>Não tem conta?</p>
+        <button class="btn register-btn">Registro</button>
+    </div>
+    <div class="toogle-panel toogle-right">
+        <h1>Bem-vindo de volta!</h1>
+        <p>Já tem conta?</p>
+        <button class="btn login-btn">Login</button>
+    </div>
+</div>
+
+</body>
 
 <script src="{% static 'js/script.js' %}"></script>
